@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Enrollment</title>
+<link rel="stylesheet" href="Styles.css">
+
+</head>
+<body>
+    <header>
+        <h1>Enrollment Form</h1>
+    </header>
+
+    
+    <nav>
+        <a href="index.html" target="_blank">Home</a> |
+        <a href="Staff.html">Staffs</a> |
+        <a href="Courses.html">Courses</a> |
+        <a id="Active">Enrollment</a> |
+        <a href="Contact.html">Contact</a> |
+        <a href="About.html" target="_blank">About Us</a> |
+      
+    </nav>
+
+
+
+<div class="container">
+    <h2>Enrollment Form</h2>
+    <form id="enrollmentForm" onsubmit="submitForm(event)">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required>
+
+        <label for="email">Parent's Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="age">Enter students Age:</label>
+        <input type="number" id="age" name="age" min="0" required>
+        
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        
+
+        <label  for="grade">Grade:</label>
+        <select id="grade" name="grade" required>
+            <option value="">Select Grade</option>
+            <option value="1">Grade 1</option>
+            <option value="2">Grade 2</option>
+            <option value="3">Grade 3</option>
+            <option value="3">Grade 4</option>
+            <option value="3">Grade 5</option>
+            <option value="3">Grade 6</option>
+            <option value="3">Grade 7</option>
+            <option value="3">Grade 8</option>
+            <option value="3">Grade 9</option>
+            
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault();
+        // Retrieve form data
+        const formData = new FormData(document.getElementById('enrollmentForm'));
+        
+        // Convert FormData to JSON
+        const jsonData = {};
+        formData.forEach((value, key) => {
+            jsonData[key] = value;
+        });
+        
+        // Display form data
+        console.log(jsonData);
+        
+        // You can send this data to a server using AJAX or perform any other action here
+        // For now, let's just alert the user that the form was submitted
+        alert('Entrollement Was Successful!');
+        
+        // Optional: Clear the form fields after submission
+        document.getElementById('enrollmentForm').reset();
+    }
+</script>
+
+<footer>
+    <p>&copy; Prime Academy Abuja. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
